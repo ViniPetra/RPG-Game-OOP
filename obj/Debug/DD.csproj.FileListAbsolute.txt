@@ -6,3 +6,11 @@ C:\Users\vinicius.pmoraes3\source\repos\DD\obj\Debug\DD.csproj.SuggestedBindingR
 C:\Users\vinicius.pmoraes3\source\repos\DD\obj\Debug\DD.csproj.CoreCompileInputs.cache
 C:\Users\vinicius.pmoraes3\source\repos\DD\obj\Debug\DD.exe
 C:\Users\vinicius.pmoraes3\source\repos\DD\obj\Debug\DD.pdb
+D:\Documents\Repositórios\RPG-Game-OOP-Study\bin\Debug\DD.exe.config
+D:\Documents\Repositórios\RPG-Game-OOP-Study\bin\Debug\DD.exe
+D:\Documents\Repositórios\RPG-Game-OOP-Study\bin\Debug\DD.pdb
+D:\Documents\Repositórios\RPG-Game-OOP-Study\obj\Debug\DD.csproj.AssemblyReference.cache
+D:\Documents\Repositórios\RPG-Game-OOP-Study\obj\Debug\DD.csproj.SuggestedBindingRedirects.cache
+D:\Documents\Repositórios\RPG-Game-OOP-Study\obj\Debug\DD.csproj.CoreCompileInputs.cache
+D:\Documents\Repositórios\RPG-Game-OOP-Study\obj\Debug\DD.exe
+D:\Documents\Repositórios\RPG-Game-OOP-Study\obj\Debug\DD.pdb
