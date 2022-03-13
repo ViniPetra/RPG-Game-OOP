@@ -11,6 +11,9 @@ namespace DD
 
         static int Main(string[] args)
         {
+            
+            bool Running = true;
+
             Random random = new Random();
             
             int GenerateRandomNum(int min, int max)
@@ -19,45 +22,157 @@ namespace DD
                 return randomNum;
             }
 
-            bool Running = true;
-
             Warrior warrior = new Warrior("warrior", GenerateRandomNum(1, 90), GenerateRandomNum(1, 100), new Hero_Status(GenerateRandomNum(20, 100), GenerateRandomNum(20, 100), GenerateRandomNum(10, 100), GenerateRandomNum(1, 100), GenerateRandomNum(30, 100), 0));
             Archer archer = new Archer("archer", GenerateRandomNum(1, 90), GenerateRandomNum(1, 100), new Hero_Status(GenerateRandomNum(20, 100), GenerateRandomNum(20, 100), GenerateRandomNum(10, 100), GenerateRandomNum(1, 100), GenerateRandomNum(30, 100), 0));
             Mage mage = new Mage("mage", GenerateRandomNum(1, 90), GenerateRandomNum(1, 100), new Hero_Status(GenerateRandomNum(20, 100), GenerateRandomNum(20, 100), GenerateRandomNum(10, 100), GenerateRandomNum(1, 100), GenerateRandomNum(30, 100), GenerateRandomNum(10, 100)));
 
-            Console.WriteLine(warrior.HeroName);
-            Console.WriteLine(warrior.Age);
-            Console.WriteLine(warrior.Level);
-            Console.WriteLine(warrior.Status.Damage);
-            Console.WriteLine(warrior.Status.Protection);
-            Console.WriteLine(warrior.Status.Agility);
-            Console.WriteLine(warrior.Status.Luck);
-            Console.WriteLine(warrior.Status.Health);
-            Console.WriteLine(warrior.Status.Mana);
-            Console.WriteLine();
+            Spider spider = new Spider(GenerateRandomNum(1, 100), new Monster_Status(GenerateRandomNum(20, 100), GenerateRandomNum(20, 100), GenerateRandomNum(10, 100), GenerateRandomNum(1, 100), GenerateRandomNum(30, 100), 0));
+            Goblin goblin = new Goblin(GenerateRandomNum(1, 100), new Monster_Status(GenerateRandomNum(20, 100), GenerateRandomNum(20, 100), GenerateRandomNum(10, 100), GenerateRandomNum(1, 100), GenerateRandomNum(30, 100), 0));
 
-            Console.WriteLine(archer.HeroName);
-            Console.WriteLine(archer.Age);
-            Console.WriteLine(archer.Level);
-            Console.WriteLine(archer.Status.Damage);
-            Console.WriteLine(archer.Status.Protection);
-            Console.WriteLine(archer.Status.Agility);
-            Console.WriteLine(archer.Status.Luck);
-            Console.WriteLine(archer.Status.Health);
-            Console.WriteLine(archer.Status.Mana);
-            Console.WriteLine();
 
-            Console.WriteLine(mage.HeroName);
-            Console.WriteLine(mage.Age);
-            Console.WriteLine(mage.Level);
-            Console.WriteLine(mage.Status.Damage);
-            Console.WriteLine(mage.Status.Protection);
-            Console.WriteLine(mage.Status.Agility);
-            Console.WriteLine(mage.Status.Luck);
-            Console.WriteLine(mage.Status.Health);
-            Console.WriteLine(mage.Status.Mana);
-            Console.WriteLine();
+            warrior.PrintStats();
+            archer.PrintStats();
+            mage.PrintStats();
+            spider.PrintStats();
+            goblin.PrintStats();
 
+            while (Running)
+            {
+                string optS, targetS, heroS;
+                int opt, target, hero, attackVal;
+
+                if(spider.Status.Health <= 0 && goblin.Status.Health <= 0)
+                {
+                    Console.WriteLine("You win");
+                    Running = false;
+                    return 0;
+                }
+                
+                Console.WriteLine("Choose Hero:\n1 - Warrior\n2 - Archer\n3 - Mage");
+                heroS = Console.ReadLine();
+                hero = Int32.Parse(heroS);
+
+                switch (hero)
+                {
+                    case 1:
+                        Console.WriteLine("Choose the action:\n1 - Attack\n2 - See stats");
+                        optS = Console.ReadLine();
+                        opt = Int32.Parse(optS);
+
+                        switch (opt)
+                        {
+                            case 1:
+                                Console.WriteLine("Choose the target:\n1 - Spider\n2 - Goblin");
+                                targetS = Console.ReadLine();
+                                target = Int32.Parse(targetS);
+
+                                switch (target)
+                                {
+                                    case 1:
+                                        attackVal = warrior.Attack();
+                                        spider.ReceiveAttack(attackVal);
+                                        Console.WriteLine("Target's health:");
+                                        Console.WriteLine(spider.Status.Health);
+                                        break;
+                                    case 2:
+                                        attackVal = warrior.Attack();
+                                        goblin.ReceiveAttack(attackVal);
+                                        Console.WriteLine("Target's health:");
+                                        Console.WriteLine(goblin.Status.Health);
+                                        break;
+                                }
+                                break;
+                            case 2:
+                                warrior.PrintStats();
+                                break;
+                        }
+                        break;
+
+                    case 2:
+                        Console.WriteLine("Choose the action:\n1 - Attack\n2 - See stats");
+                        optS = Console.ReadLine();
+                        opt = Int32.Parse(optS);
+
+                        switch (opt)
+                        {
+                            case 1:
+                                Console.WriteLine("Choose the target:\n1 - Spider\n2 - Goblin");
+                                targetS = Console.ReadLine();
+                                target = Int32.Parse(targetS);
+
+                                switch (target)
+                                {
+                                    case 1:
+                                        attackVal = archer.Attack();
+                                        spider.ReceiveAttack(attackVal);
+                                        Console.WriteLine("Target's health:");
+                                        Console.WriteLine(spider.Status.Health);
+                                        break;
+                                    case 2:
+                                        attackVal = archer.Attack();
+                                        goblin.ReceiveAttack(attackVal);
+                                        Console.WriteLine("Target's health:");
+                                        Console.WriteLine(goblin.Status.Health);
+                                        break;
+                                }
+                                break;
+                            case 2:
+                                archer.PrintStats();
+                                break;
+                        }
+                        break;
+
+                    case 3:
+                        Console.WriteLine("Choose the action:\n1 - Attack\n2 - Heal\n3 - See stats");
+                        optS = Console.ReadLine();
+                        opt = Int32.Parse(optS);
+
+                        switch (opt)
+                        {
+                            case 1:
+                                Console.WriteLine("Choose the target:\n1 - Spider\n2 - Goblin");
+                                targetS = Console.ReadLine();
+                                target = Int32.Parse(targetS);
+
+                                switch (target)
+                                {
+                                    case 1:
+                                        attackVal = mage.Attack();
+                                        spider.ReceiveAttack(attackVal);
+                                        Console.WriteLine("Target's health:");
+                                        Console.WriteLine(spider.Status.Health);
+                                        break;
+                                    case 2:
+                                        attackVal = mage.Attack();
+                                        goblin.ReceiveAttack(attackVal);
+                                        Console.WriteLine("Target's health:");
+                                        Console.WriteLine(goblin.Status.Health);
+                                        break;
+                                }
+                                break;
+                            case 2:
+                                Console.WriteLine("Choose the target:\n1 - Warrior\n2 - Archer");
+                                targetS = Console.ReadLine();
+                                target = Int32.Parse(targetS);
+                                switch (target)
+                                {
+                                    case 1:
+                                        mage.Heal(warrior);
+                                        break;
+                                    case 2:
+                                        mage.Heal(archer);
+                                        break;
+                                }
+                                break;
+
+                            case 3:
+                                mage.PrintStats();
+                                hero = 1;
+                                break;
+                        }
+                        break;
+                }
+            }
             return 0;
         }
     }

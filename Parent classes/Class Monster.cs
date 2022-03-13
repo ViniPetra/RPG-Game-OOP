@@ -52,8 +52,13 @@ namespace DD
                 lifeReduction = lifeReduction * -1;
             }
             this.Status.Health = this.Status.Health - lifeReduction;
+            if (this.Status.Health < 0)
+            {
+                Console.WriteLine("This monster is now dead");
+            }
             return lifeReduction;
         }
+
         public int Attack()
         {
             if (IsDead() == true)
@@ -68,6 +73,7 @@ namespace DD
             int attackVal = ((int)val); // Gets attack value
             return attackVal;
         }
+
         public bool IsDead()
         {
             if (this.Status.Health < 0)
@@ -76,6 +82,19 @@ namespace DD
                 return true;
             }
             else return false;
+        }
+
+        public void PrintStats()
+        {
+            Console.WriteLine("Type: Monster");
+            Console.WriteLine("Level: {0}", this.Level);
+            Console.WriteLine("Damage: {0}", this.Status.Damage);
+            Console.WriteLine("Protection: {0}", this.Status.Protection);
+            Console.WriteLine("Agility: {0}", this.Status.Agility);
+            Console.WriteLine("Luck: {0}", this.Status.Luck);
+            Console.WriteLine("Health: {0}", this.Status.Health);
+            Console.WriteLine("Mana: {0}", this.Status.Mana);
+            Console.WriteLine();
         }
     }
 }
