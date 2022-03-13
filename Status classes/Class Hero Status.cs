@@ -14,7 +14,7 @@ namespace DD
         private int agility;
         private int luck;
         private int health;
-        private int mana; //Analyse for overpowered values; Heal function drains mana -= 10 per use; 
+        private int mana;
 
         //Getters and Setters
         public int Damage { get => damage; set => damage = value; }

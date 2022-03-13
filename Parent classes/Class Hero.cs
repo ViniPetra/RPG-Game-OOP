@@ -17,12 +17,13 @@ namespace DD
         public int Level { get => level; set => level = value; }
         internal Hero_Status Status { get => status; set => status = value; }
 
+
         public Hero()
         {
 
         }
         public Hero(string name, int age, int level, Hero_Status status)
-        {
+        { 
             Name = name;
             Age = age;
             Level = level;
@@ -78,6 +79,5 @@ namespace DD
             }
             else return false;
         }
-
     }
 }

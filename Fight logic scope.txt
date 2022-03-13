@@ -1,0 +1,20 @@
+CREATE THIS FUNCTION
+function to create random monsters and random heros with random stats
+	can only spawn 1 dragon as monster
+	can spawn up to 3 heros and 5 monsters
+
+append monsters and heros to 2 arrays
+
+while rodadando
+	print heros and monsters and stats
+	if has mage
+		print choose attack or heal (fix heal not to give more life than created)
+	if chosen attack
+		print choose warrior
+		print choose target
+		functions
+		if monster dies, remove from array
+		if hero dies, remove from array
+	random monster attacks random ALIVE hero
+	if all monsters dead, print you win ,rodando -1
+	if all heros dead, print you lose, rodando -1

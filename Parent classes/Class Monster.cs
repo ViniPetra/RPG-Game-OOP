@@ -11,7 +11,7 @@ namespace DD
         private int level;
         private Monster_Status status;
 
-        //Getters and Setters
+        
         public int Level { get => level; set => level = value; }
         internal Monster_Status Status { get => status; set => status = value; }
 
