@@ -47,9 +47,9 @@
     <Compile Include="Class Monster Status.cs" />
     <Compile Include="Class Monster.cs" />
     <Compile Include="Class Hero Status.cs" />
-    <Compile Include="Class Warior - Hero.cs" />
-    <Compile Include="Class Mage - Hero.cs" />
-    <Compile Include="Class Archer - Hero.cs" />
+    <Compile Include="Class Hero - Warrior.cs" />
+    <Compile Include="Class Hero - Mage.cs" />
+    <Compile Include="Class Hero - Archer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
