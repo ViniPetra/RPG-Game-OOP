@@ -39,14 +39,7 @@ namespace DD
             while (Running)
             {
                 string optS, targetS, heroS;
-                int opt, target, hero, attackVal;
-
-                if(spider.Status.Health <= 0 && goblin.Status.Health <= 0)
-                {
-                    Console.WriteLine("You win");
-                    Running = false;
-                    return 0;
-                }
+                int opt, target, hero, attackVal, alive;
                 
                 Console.WriteLine("Choose Hero:\n1 - Warrior\n2 - Archer\n3 - Mage");
                 heroS = Console.ReadLine();
@@ -172,6 +165,24 @@ namespace DD
                         }
                         break;
                 }
+
+                if (spider.IsDead() && goblin.IsDead() == false)
+                {
+                    alive = 1;
+                }
+                else if (spider.IsDead() == false && goblin.IsDead())
+                {
+                    alive = 2;
+                }
+                else alive = 3;
+
+                if (spider.IsDead() && goblin.IsDead())
+                {
+                    Console.WriteLine("You win");
+                    Running = false;
+                    return 0;
+                }
+
             }
             return 0;
         }
