@@ -32,6 +32,11 @@ namespace DD
 
         public int ReceiveAttack(int attackStrengh)
         {
+            if (IsDead() == true)
+            {
+                return -1;
+            }
+
             int defence = Defence();
             int lifeReduction = defence - attackStrengh;
             if (lifeReduction < 0)
@@ -43,6 +48,11 @@ namespace DD
         }
         public int Attack()
         {
+            if (IsDead() == true)
+            {
+                return -1;
+            }
+
             Random random = new Random(); //Instanciates random num
             int randomNum = random.Next(1, this.Status.Luck); //Generates radom num based on Luck
             int stats = (this.Status.Damage + this.Status.Agility);
@@ -50,5 +60,14 @@ namespace DD
             int attackVal = ((int)val); // Gets attack value
             return attackVal;
         }
+        public bool IsDead()
+        {
+            if (this.Status.Health < 0)
+            {
+                Console.WriteLine("Can't do, object is dead");
+                return true;
+            } else return false;
+        }
+
     }
 }
