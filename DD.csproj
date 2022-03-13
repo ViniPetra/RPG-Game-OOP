@@ -44,6 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class Hero.cs" />
+    <Compile Include="Class Monster - Dragon.cs" />
+    <Compile Include="Class Monster - Goblin.cs" />
+    <Compile Include="Class Monster - Spider.cs" />
     <Compile Include="Class Monster Status.cs" />
     <Compile Include="Class Monster.cs" />
     <Compile Include="Class Hero Status.cs" />
