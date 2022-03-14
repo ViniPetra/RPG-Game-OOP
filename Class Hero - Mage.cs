@@ -20,7 +20,7 @@ namespace DD
         }
 
         //Healing
-        public void Heal(Hero hero) 
+        public void Heal(Hero hero) //Fix for alive targets only
         {
             Random random = new Random(); //Instanciates random num
             int randomNum = random.Next(1, this.Status.Luck); //Generates radom num based on Luck

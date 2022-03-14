@@ -17,12 +17,13 @@ namespace DD
         public int Level { get => level; set => level = value; }
         internal Hero_Status Status { get => status; set => status = value; }
 
+
         public Hero()
         {
 
         }
         public Hero(string name, int age, int level, Hero_Status status)
-        {
+        { 
             Name = name;
             Age = age;
             Level = level;
@@ -53,6 +54,10 @@ namespace DD
                 lifeReduction = lifeReduction * -1;
             }
             this.Status.Health = this.Status.Health - lifeReduction;
+            if (this.Status.Health < 0)
+            {
+                Console.WriteLine("This monster is now dead");
+            }
             return lifeReduction;
         }
         public int Attack()
@@ -77,6 +82,20 @@ namespace DD
                 return true;
             }
             else return false;
+        }
+
+        public void PrintStats()
+        {
+            Console.WriteLine("Name: {0}", this.HeroName);
+            Console.WriteLine("Age: {0}", this.Age);
+            Console.WriteLine("Level: {0}", this.Level);
+            Console.WriteLine("Damage: {0}", this.Status.Damage);
+            Console.WriteLine("Protection: {0}", this.Status.Protection);
+            Console.WriteLine("Agility: {0}", this.Status.Agility);
+            Console.WriteLine("Luck: {0}", this.Status.Luck);
+            Console.WriteLine("Health: {0}", this.Status.Health);
+            Console.WriteLine("Mana: {0}", this.Status.Mana);
+            Console.WriteLine();
         }
 
     }
