@@ -163,14 +163,14 @@ namespace DD
 
                 //Monster's turn
 
-                if (spider.IsDead(spider) || goblin.IsDead(goblin) == false)
+                if (spider.IsDead() || goblin.IsDead() == false)
                 {
                     monsterTurn = GenerateRandomNum(1, 3);
 
                     switch (monsterTurn)
                     {
                         case 1:
-                            if (warrior.IsDead(warrior) == false)
+                            if (warrior.IsDead() == false)
                             {
                                 warrior.ReceiveAttack(goblin.Attack());
                                 Console.WriteLine("Goblin has attacked Warrior");
@@ -180,7 +180,7 @@ namespace DD
                             break;
 
                         case 2:
-                            if (archer.IsDead(archer) == false)
+                            if (archer.IsDead() == false)
                             {
                                 archer.ReceiveAttack(goblin.Attack());
                                 Console.WriteLine("Goblin has attacked Archer");
@@ -190,7 +190,7 @@ namespace DD
                             break;
 
                         case 3:
-                            if (mage.IsDead(mage) == false)
+                            if (mage.IsDead() == false)
                             {
                                 mage.ReceiveAttack(goblin.Attack());
                                 Console.WriteLine("Goblin has attacked Mage");
@@ -200,13 +200,13 @@ namespace DD
                             break;
                     }
                 }
-                else if (spider.IsDead(spider) == false || goblin.IsDead(goblin))
+                else if (spider.IsDead() == false || goblin.IsDead())
                 {
                     monsterTurn = GenerateRandomNum(1, 3);
                     switch (monsterTurn)
                     {
                         case 1:
-                            if (warrior.IsDead(warrior) == false)
+                            if (warrior.IsDead() == false)
                             {
                                 warrior.ReceiveAttack(spider.Attack());
                                 Console.WriteLine("Spider has attacked Warrior");
@@ -216,7 +216,7 @@ namespace DD
                             break;
 
                         case 2:
-                            if (archer.IsDead(archer) == false)
+                            if (archer.IsDead() == false)
                             {
                                 archer.ReceiveAttack(spider.Attack());
                                 Console.WriteLine("Spider has attacked Archer");
@@ -226,7 +226,7 @@ namespace DD
                             break;
 
                         case 3:
-                            if (mage.IsDead(mage) == false)
+                            if (mage.IsDead() == false)
                             {
                                 mage.ReceiveAttack(spider.Attack());
                                 Console.WriteLine("Spider has attacked Mage");
@@ -238,13 +238,13 @@ namespace DD
                 }
 
                 //Check who won
-                if (spider.IsDead(spider) && goblin.IsDead(goblin))
+                if (spider.IsDead() && goblin.IsDead())
                 {
                     Console.WriteLine("You win");
                     Running = false;
                     return 0;
                 }
-                if (warrior.IsDead(warrior)  && archer.IsDead(archer) && mage.IsDead(mage))
+                if (warrior.IsDead()  && archer.IsDead() && mage.IsDead())
                 {
                     Console.WriteLine("You lose");
                     Running = false;

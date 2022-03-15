@@ -42,8 +42,9 @@ namespace DD
 
         public int ReceiveAttack(int attackStrengh)
         {
-            if (IsDead(this) == true)
+            if (IsDead() == true)
             {
+                Console.WriteLine("This target is already dead");
                 return -1;
             }
 
@@ -62,8 +63,9 @@ namespace DD
         }
         public int Attack()
         {
-            if (IsDead(this) == true)
+            if (IsDead() == true)
             {
+                Console.WriteLine("Can't attack, Hero is dead");
                 return -1;
             }
 
@@ -74,7 +76,7 @@ namespace DD
             int attackVal = ((int)val); // Gets attack value
             return attackVal;
         }
-        public bool IsDead(Hero hero)
+        public bool IsDead()
         {
             if (this.Status.Health < 0)
             {
