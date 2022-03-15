@@ -142,6 +142,7 @@ namespace DD
                                 Console.WriteLine("Choose the target:\n1 - Warrior\n2 - Archer");
                                 targetS = Console.ReadLine();
                                 target = Int32.Parse(targetS);
+
                                 switch (target)
                                 {
                                     case 1:
@@ -161,7 +162,8 @@ namespace DD
                 }
 
                 //Monster's turn
-                if (spider.IsDead(spider) && goblin.IsDead(goblin) == false)
+
+                if (spider.IsDead(spider) || goblin.IsDead(goblin) == false)
                 {
                     monsterTurn = GenerateRandomNum(1, 3);
 
@@ -171,27 +173,34 @@ namespace DD
                             if (warrior.IsDead(warrior) == false)
                             {
                                 warrior.ReceiveAttack(goblin.Attack());
+                                Console.WriteLine("Goblin has attacked Warrior");
+                                Console.WriteLine("Warrior's health:");
+                                Console.WriteLine(warrior.Status.Health);
                             }
-                            else monsterTurn = 2; //make it a recursive function
                             break;
 
                         case 2:
                             if (archer.IsDead(archer) == false)
                             {
                                 archer.ReceiveAttack(goblin.Attack());
+                                Console.WriteLine("Goblin has attacked Archer");
+                                Console.WriteLine("Archer's health:");
+                                Console.WriteLine(archer.Status.Health);
                             }
-                            else monsterTurn = 3;
                             break;
 
                         case 3:
                             if (mage.IsDead(mage) == false)
                             {
                                 mage.ReceiveAttack(goblin.Attack());
+                                Console.WriteLine("Goblin has attacked Mage");
+                                Console.WriteLine("Mage's health:");
+                                Console.WriteLine(mage.Status.Health);
                             }
                             break;
                     }
                 }
-                else if (spider.IsDead(spider) == false && goblin.IsDead(goblin))
+                else if (spider.IsDead(spider) == false || goblin.IsDead(goblin))
                 {
                     monsterTurn = GenerateRandomNum(1, 3);
                     switch (monsterTurn)
@@ -200,22 +209,29 @@ namespace DD
                             if (warrior.IsDead(warrior) == false)
                             {
                                 warrior.ReceiveAttack(spider.Attack());
+                                Console.WriteLine("Spider has attacked Warrior");
+                                Console.WriteLine("Warrior's health:");
+                                Console.WriteLine(warrior.Status.Health);
                             }
-                            else monsterTurn = 2; //make it a recursive function
                             break;
 
                         case 2:
                             if (archer.IsDead(archer) == false)
                             {
                                 archer.ReceiveAttack(spider.Attack());
-                            }
-                            else monsterTurn = 3;
+                                Console.WriteLine("Spider has attacked Archer");
+                                Console.WriteLine("Acher's health:");
+                                Console.WriteLine(archer.Status.Health);
+                            } 
                             break;
 
                         case 3:
                             if (mage.IsDead(mage) == false)
                             {
                                 mage.ReceiveAttack(spider.Attack());
+                                Console.WriteLine("Spider has attacked Mage");
+                                Console.WriteLine("Mage's health:");
+                                Console.WriteLine(mage.Status.Health);
                             }
                             break;
                     }

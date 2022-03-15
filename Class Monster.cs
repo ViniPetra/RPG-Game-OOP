@@ -76,9 +76,8 @@ namespace DD
 
         public bool IsDead(Monster monster)
         {
-            if (this.Status.Health < 0)
+            if (this.Status.Health <= 0)
             {
-                Console.WriteLine("Can't do, {0} is dead", monster);
                 return true;
             }
             else return false;

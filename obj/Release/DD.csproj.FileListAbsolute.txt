@@ -1,0 +1,8 @@
+D:\Documents\Repositórios\RPG-Game-OOP-Study\bin\Release\DD.exe.config
+D:\Documents\Repositórios\RPG-Game-OOP-Study\bin\Release\DD.exe
+D:\Documents\Repositórios\RPG-Game-OOP-Study\bin\Release\DD.pdb
+D:\Documents\Repositórios\RPG-Game-OOP-Study\obj\Release\DD.csproj.AssemblyReference.cache
+D:\Documents\Repositórios\RPG-Game-OOP-Study\obj\Release\DD.csproj.SuggestedBindingRedirects.cache
+D:\Documents\Repositórios\RPG-Game-OOP-Study\obj\Release\DD.csproj.CoreCompileInputs.cache
+D:\Documents\Repositórios\RPG-Game-OOP-Study\obj\Release\DD.exe
+D:\Documents\Repositórios\RPG-Game-OOP-Study\obj\Release\DD.pdb

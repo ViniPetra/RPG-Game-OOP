@@ -78,7 +78,6 @@ namespace DD
         {
             if (this.Status.Health < 0)
             {
-                Console.WriteLine("Can't do, {0} is dead", hero);
                 return true;
             }
             else return false;
