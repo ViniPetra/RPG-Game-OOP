@@ -39,8 +39,9 @@ namespace DD
             while (Running)
             {
                 string optS, targetS, heroS;
-                int opt, target, hero, attackVal, alive;
+                int opt, target, hero, monsterTurn;
                 
+                //Player's turn
                 Console.WriteLine("Choose Hero:\n1 - Warrior\n2 - Archer\n3 - Mage");
                 heroS = Console.ReadLine();
                 hero = Int32.Parse(heroS);
@@ -62,14 +63,12 @@ namespace DD
                                 switch (target)
                                 {
                                     case 1:
-                                        attackVal = warrior.Attack();
-                                        spider.ReceiveAttack(attackVal);
+                                        spider.ReceiveAttack(warrior.Attack());
                                         Console.WriteLine("Target's health:");
                                         Console.WriteLine(spider.Status.Health);
                                         break;
                                     case 2:
-                                        attackVal = warrior.Attack();
-                                        goblin.ReceiveAttack(attackVal);
+                                        goblin.ReceiveAttack(warrior.Attack());
                                         Console.WriteLine("Target's health:");
                                         Console.WriteLine(goblin.Status.Health);
                                         break;
@@ -96,14 +95,12 @@ namespace DD
                                 switch (target)
                                 {
                                     case 1:
-                                        attackVal = archer.Attack();
-                                        spider.ReceiveAttack(attackVal);
+                                        spider.ReceiveAttack(archer.Attack());
                                         Console.WriteLine("Target's health:");
                                         Console.WriteLine(spider.Status.Health);
                                         break;
                                     case 2:
-                                        attackVal = archer.Attack();
-                                        goblin.ReceiveAttack(attackVal);
+                                        goblin.ReceiveAttack(archer.Attack());
                                         Console.WriteLine("Target's health:");
                                         Console.WriteLine(goblin.Status.Health);
                                         break;
@@ -130,14 +127,12 @@ namespace DD
                                 switch (target)
                                 {
                                     case 1:
-                                        attackVal = mage.Attack();
-                                        spider.ReceiveAttack(attackVal);
+                                        spider.ReceiveAttack(mage.Attack());
                                         Console.WriteLine("Target's health:");
                                         Console.WriteLine(spider.Status.Health);
                                         break;
                                     case 2:
-                                        attackVal = mage.Attack();
-                                        goblin.ReceiveAttack(attackVal);
+                                        goblin.ReceiveAttack(mage.Attack());
                                         Console.WriteLine("Target's health:");
                                         Console.WriteLine(goblin.Status.Health);
                                         break;
@@ -160,29 +155,85 @@ namespace DD
 
                             case 3:
                                 mage.PrintStats();
-                                hero = 1;
                                 break;
                         }
                         break;
                 }
 
-                if (spider.IsDead() && goblin.IsDead() == false)
+                //Monster's turn
+                if (spider.IsDead(spider) && goblin.IsDead(goblin) == false)
                 {
-                    alive = 1;
-                }
-                else if (spider.IsDead() == false && goblin.IsDead())
-                {
-                    alive = 2;
-                }
-                else alive = 3;
+                    monsterTurn = GenerateRandomNum(1, 3);
 
-                if (spider.IsDead() && goblin.IsDead())
+                    switch (monsterTurn)
+                    {
+                        case 1:
+                            if (warrior.IsDead(warrior) == false)
+                            {
+                                warrior.ReceiveAttack(goblin.Attack());
+                            }
+                            else monsterTurn = 2; //make it a recursive function
+                            break;
+
+                        case 2:
+                            if (archer.IsDead(archer) == false)
+                            {
+                                archer.ReceiveAttack(goblin.Attack());
+                            }
+                            else monsterTurn = 3;
+                            break;
+
+                        case 3:
+                            if (mage.IsDead(mage) == false)
+                            {
+                                mage.ReceiveAttack(goblin.Attack());
+                            }
+                            break;
+                    }
+                }
+                else if (spider.IsDead(spider) == false && goblin.IsDead(goblin))
+                {
+                    monsterTurn = GenerateRandomNum(1, 3);
+                    switch (monsterTurn)
+                    {
+                        case 1:
+                            if (warrior.IsDead(warrior) == false)
+                            {
+                                warrior.ReceiveAttack(spider.Attack());
+                            }
+                            else monsterTurn = 2; //make it a recursive function
+                            break;
+
+                        case 2:
+                            if (archer.IsDead(archer) == false)
+                            {
+                                archer.ReceiveAttack(spider.Attack());
+                            }
+                            else monsterTurn = 3;
+                            break;
+
+                        case 3:
+                            if (mage.IsDead(mage) == false)
+                            {
+                                mage.ReceiveAttack(spider.Attack());
+                            }
+                            break;
+                    }
+                }
+
+                //Check who won
+                if (spider.IsDead(spider) && goblin.IsDead(goblin))
                 {
                     Console.WriteLine("You win");
                     Running = false;
                     return 0;
                 }
-
+                if (warrior.IsDead(warrior)  && archer.IsDead(archer) && mage.IsDead(mage))
+                {
+                    Console.WriteLine("You lose");
+                    Running = false;
+                    return 0;
+                }
             }
             return 0;
         }

@@ -42,7 +42,7 @@ namespace DD
 
         public int ReceiveAttack(int attackStrengh)
         {
-            if (IsDead() == true)
+            if (IsDead(this) == true)
             {
                 return -1;
             }
@@ -56,13 +56,13 @@ namespace DD
             this.Status.Health = this.Status.Health - lifeReduction;
             if (this.Status.Health < 0)
             {
-                Console.WriteLine("This monster is now dead");
+                Console.WriteLine("This hero is now dead");
             }
             return lifeReduction;
         }
         public int Attack()
         {
-            if (IsDead() == true)
+            if (IsDead(this) == true)
             {
                 return -1;
             }
@@ -74,11 +74,11 @@ namespace DD
             int attackVal = ((int)val); // Gets attack value
             return attackVal;
         }
-        public bool IsDead()
+        public bool IsDead(Hero hero)
         {
             if (this.Status.Health < 0)
             {
-                Console.WriteLine("Can't do, object is dead");
+                Console.WriteLine("Can't do, {0} is dead", hero);
                 return true;
             }
             else return false;

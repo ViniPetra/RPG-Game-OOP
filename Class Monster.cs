@@ -40,7 +40,7 @@ namespace DD
 
         public int ReceiveAttack(int attackStrengh)
         {
-            if (IsDead() == true)
+            if (IsDead(this) == true)
             {
                 return -1;
             }
@@ -61,7 +61,7 @@ namespace DD
 
         public int Attack()
         {
-            if (IsDead() == true)
+            if (IsDead(this) == true)
             {
                 return -1;
             }
@@ -74,11 +74,11 @@ namespace DD
             return attackVal;
         }
 
-        public bool IsDead()
+        public bool IsDead(Monster monster)
         {
             if (this.Status.Health < 0)
             {
-                Console.WriteLine("Can't do, object is dead");
+                Console.WriteLine("Can't do, {0} is dead", monster);
                 return true;
             }
             else return false;
