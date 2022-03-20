@@ -97,11 +97,13 @@ namespace DD
                                 {
                                     case 1:
                                         monsters[0].ReceiveAttack(heroes[0].Attack());
+                                        Console.WriteLine("{0} has attacked {1}", heroes[0].HeroName, monsters[0].Name);
                                         Console.WriteLine("Target's health:");
                                         Console.WriteLine(monsters[0].Status.Health);
                                         break;
                                     case 2:
                                         monsters[1].ReceiveAttack(heroes[0].Attack());
+                                        Console.WriteLine("{0} has attacked {1}", heroes[0].HeroName, monsters[1].Name);
                                         Console.WriteLine("Target's health:");
                                         Console.WriteLine(monsters[1].Status.Health);
                                         break;
@@ -129,11 +131,13 @@ namespace DD
                                 {
                                     case 1:
                                         monsters[0].ReceiveAttack(heroes[1].Attack());
+                                        Console.WriteLine("{0} has attacked {1}", heroes[1].HeroName, monsters[0].Name);
                                         Console.WriteLine("Target's health:");
                                         Console.WriteLine(monsters[0].Status.Health);
                                         break;
                                     case 2:
                                         monsters[1].ReceiveAttack(heroes[1].Attack());
+                                        Console.WriteLine("{0} has attacked {1}", heroes[1].HeroName, monsters[1].Name);
                                         Console.WriteLine("Target's health:");
                                         Console.WriteLine(monsters[1].Status.Health);
                                         break;
@@ -161,11 +165,13 @@ namespace DD
                                 {
                                     case 1:
                                         monsters[0].ReceiveAttack(heroes[2].Attack());
+                                        Console.WriteLine("{0} has attacked {1}", heroes[2].HeroName, monsters[0].Name);
                                         Console.WriteLine("Target's health:");
                                         Console.WriteLine(monsters[0].Status.Health);
                                         break;
                                     case 2:
                                         monsters[1].ReceiveAttack(heroes[2].Attack());
+                                        Console.WriteLine("{0} has attacked {1}", heroes[2].HeroName, monsters[1].Name);
                                         Console.WriteLine("Target's health:");
                                         Console.WriteLine(monsters[1].Status.Health);
                                         break;
@@ -197,83 +203,95 @@ namespace DD
                 }
 
                 //Monster's turn
+                bool MonstersTurn = true;
 
-                if (monsters[0].IsDead() || monsters[1].IsDead() == false)
+                while (MonstersTurn)
                 {
-                    monsterTurn = GenerateRandomNum(1, 3);
-
-                    switch (monsterTurn)
+                    Console.WriteLine("Monster's Turn");
+                    if (monsters[0].IsDead() && monsters[1].IsDead() == false)
                     {
-                        case 1:
-                            if (heroes[0].IsDead() == false)
-                            {
-                                heroes[0].ReceiveAttack(monsters[1].Attack());
-                                Console.WriteLine("{0} has attacked {1}", monsters[1].Name, heroes[0].HeroName);
-                                Console.WriteLine("{0}'s health: {1}", heroes[0].HeroName, heroes[0].Status.Health);
-                            }
-                            break;
+                        monsterTurn = GenerateRandomNum(1, 3);
 
-                        case 2:
-                            if (heroes[1].IsDead() == false)
-                            {
-                                heroes[1].ReceiveAttack(monsters[1].Attack());
-                                Console.WriteLine("{0} has attacked {1}", monsters[1].Name, heroes[1].HeroName);
-                                Console.WriteLine("{0}'s health: {1}", heroes[1].HeroName, heroes[1].Status.Health);
-                            }
-                            break;
+                        switch (monsterTurn)
+                        {
+                            case 1:
+                                if (heroes[0].IsDead() == false)
+                                {
+                                    heroes[0].ReceiveAttack(monsters[1].Attack());
+                                    Console.WriteLine("{0} has attacked {1}", monsters[1].Name, heroes[0].HeroName);
+                                    Console.WriteLine("{0}'s health: {1}", heroes[0].HeroName, heroes[0].Status.Health);
+                                    MonstersTurn = false;
+                                }
+                                break;
 
-                        case 3:
-                            if (heroes[2].IsDead() == false)
-                            {
-                                heroes[2].ReceiveAttack(monsters[1].Attack());
-                                Console.WriteLine("{0} has attacked {1}", monsters[1].Name, heroes[2].HeroName);
-                                Console.WriteLine("{0}'s health: {1}", heroes[2].HeroName, heroes[2].Status.Health);
-                            }
-                            break;
+                            case 2:
+                                if (heroes[1].IsDead() == false)
+                                {
+                                    heroes[1].ReceiveAttack(monsters[1].Attack());
+                                    Console.WriteLine("{0} has attacked {1}", monsters[1].Name, heroes[1].HeroName);
+                                    Console.WriteLine("{0}'s health: {1}", heroes[1].HeroName, heroes[1].Status.Health);
+                                    MonstersTurn = false;
+                                }
+                                break;
+
+                            case 3:
+                                if (heroes[2].IsDead() == false)
+                                {
+                                    heroes[2].ReceiveAttack(monsters[1].Attack());
+                                    Console.WriteLine("{0} has attacked {1}", monsters[1].Name, heroes[2].HeroName);
+                                    Console.WriteLine("{0}'s health: {1}", heroes[2].HeroName, heroes[2].Status.Health);
+                                    MonstersTurn = false;
+                                }
+                                break;
+                        }
+                    }
+
+                    else if (monsters[0].IsDead() == false && monsters[1].IsDead())
+                    {
+                        monsterTurn = GenerateRandomNum(1, 3);
+                        switch (monsterTurn)
+                        {
+                            case 1:
+                                if (heroes[0].IsDead() == false)
+                                {
+                                    heroes[0].ReceiveAttack(monsters[0].Attack());
+                                    Console.WriteLine("{0} has attacked {1}", monsters[0].Name, heroes[0].HeroName);
+                                    Console.WriteLine("{0}'s health: {1}", heroes[0].HeroName, heroes[0].Status.Health);
+                                    MonstersTurn = false;
+                                }
+                                break;
+
+                            case 2:
+                                if (heroes[1].IsDead() == false)
+                                {
+                                    heroes[0].ReceiveAttack(monsters[0].Attack());
+                                    Console.WriteLine("{0} has attacked {1}", monsters[0].Name, heroes[1].HeroName);
+                                    Console.WriteLine("{0}'s health: {1}", heroes[1].HeroName, heroes[1].Status.Health);
+                                    MonstersTurn = false;
+                                }
+                                break;
+
+                            case 3:
+                                if (heroes[2].IsDead() == false)
+                                {
+                                    heroes[0].ReceiveAttack(monsters[0].Attack());
+                                    Console.WriteLine("{0} has attacked {1}", monsters[0].Name, heroes[2].HeroName);
+                                    Console.WriteLine("{0}'s health: {1}", heroes[2].HeroName, heroes[2].Status.Health);
+                                    MonstersTurn = false;
+                                }
+                                break;
+                        }
+                    }
+                    if (monsters[0].IsDead() && monsters[1].IsDead())
+                    {
+                        MonstersTurn = false;
+                        Console.WriteLine("You win");
+                        Running = false;
+                        return 0;
                     }
                 }
-                else if (monsters[0].IsDead() == false || monsters[1].IsDead())
-                {
-                    monsterTurn = GenerateRandomNum(1, 3);
-                    switch (monsterTurn)
-                    {
-                        case 1:
-                            if (heroes[0].IsDead() == false)
-                            {
-                                heroes[0].ReceiveAttack(monsters[0].Attack());
-                                Console.WriteLine("{0} has attacked {1}", monsters[0].Name, heroes[0].HeroName);
-                                Console.WriteLine("{0}'s health: {1}", heroes[0].HeroName, heroes[0].Status.Health);
-                            }
-                            break;
 
-                        case 2:
-                            if (heroes[1].IsDead() == false)
-                            {
-                                heroes[0].ReceiveAttack(monsters[0].Attack());
-                                Console.WriteLine("{0} has attacked {1}", monsters[0].Name, heroes[1].HeroName);
-                                Console.WriteLine("{0}'s health: {1}", heroes[1].HeroName, heroes[1].Status.Health);
-                            } 
-                            break;
-
-                        case 3:
-                            if (heroes[2].IsDead() == false)
-                            {
-                                heroes[0].ReceiveAttack(monsters[0].Attack());
-                                Console.WriteLine("{0} has attacked {1}", monsters[0].Name, heroes[2].HeroName);
-                                Console.WriteLine("{0}'s health: {1}", heroes[2].HeroName, heroes[2].Status.Health);
-                            }
-                            break;
-                    }
-                }
-
-                //Check who won
-                if (monsters[0].IsDead() && monsters[2].IsDead())
-                {
-                    Console.WriteLine("You win");
-                    Running = false;
-                    return 0;
-                }
-                if (heroes[0].IsDead()  && heroes[1].IsDead() && heroes[2].IsDead())
+                if (heroes[0].IsDead() && heroes[1].IsDead() && heroes[2].IsDead())
                 {
                     Console.WriteLine("You lose");
                     Running = false;
