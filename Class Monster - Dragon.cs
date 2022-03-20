@@ -14,7 +14,7 @@ namespace DD
 
         }
 
-        public Dragon(int level, Monster_Status status) : base(level, status)
+        public Dragon(string name, int level, Monster_Status status) : base(name, level, status)
         {
 
         }

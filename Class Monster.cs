@@ -8,10 +8,12 @@ namespace DD
 {
     internal class Monster
     {
+        private string name;
         private int level;
         private Monster_Status status;
 
-        
+
+        public string Name { get => name; set => name = value; }
         public int Level { get => level; set => level = value; }
         internal Monster_Status Status { get => status; set => status = value; }
 
@@ -22,10 +24,11 @@ namespace DD
         }
 
         //Constructor
-        public Monster(int level, Monster_Status status)
+        public Monster(string name, int level, Monster_Status status)
         {
-            Level = level;
-            Status = status;
+            this.name = name;
+            this.level = level;
+            this.status = status;
         }
 
         public int Defence()
@@ -87,7 +90,6 @@ namespace DD
 
         public void PrintStats()
         {
-            Console.WriteLine("Type: Monster");
             Console.WriteLine("Level: {0}", this.Level);
             Console.WriteLine("Damage: {0}", this.Status.Damage);
             Console.WriteLine("Protection: {0}", this.Status.Protection);
