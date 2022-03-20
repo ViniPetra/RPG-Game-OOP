@@ -69,13 +69,6 @@ namespace DD
                 monsters[i].PrintStats();
             }
 
-            Warrior warrior = new Warrior("warrior", GenerateRandomNum(1, 90), GenerateRandomNum(1, 100), new Hero_Status(GenerateRandomNum(20, 100), GenerateRandomNum(20, 100), GenerateRandomNum(10, 100), GenerateRandomNum(1, 100), GenerateRandomNum(30, 100), 0));
-            Archer archer = new Archer("archer", GenerateRandomNum(1, 90), GenerateRandomNum(1, 100), new Hero_Status(GenerateRandomNum(20, 100), GenerateRandomNum(20, 100), GenerateRandomNum(10, 100), GenerateRandomNum(1, 100), GenerateRandomNum(30, 100), 0));
-            Mage mage = new Mage("mage", GenerateRandomNum(1, 90), GenerateRandomNum(1, 100), new Hero_Status(GenerateRandomNum(20, 100), GenerateRandomNum(20, 100), GenerateRandomNum(10, 100), GenerateRandomNum(1, 100), GenerateRandomNum(30, 100), GenerateRandomNum(10, 100)));
-
-            Spider spider = new Spider("Spider", GenerateRandomNum(1, 100), new Monster_Status(GenerateRandomNum(20, 100), GenerateRandomNum(20, 100), GenerateRandomNum(10, 100), GenerateRandomNum(1, 100), GenerateRandomNum(30, 100), 0));
-            Goblin goblin = new Goblin("Goblin", GenerateRandomNum(1, 100), new Monster_Status(GenerateRandomNum(20, 100), GenerateRandomNum(20, 100), GenerateRandomNum(10, 100), GenerateRandomNum(1, 100), GenerateRandomNum(30, 100), 0));
-
             while (Running)
             {
                 string optS, targetS, heroS;
@@ -203,88 +196,88 @@ namespace DD
 
                 //Monster's turn
 
-                if (spider.IsDead() || goblin.IsDead() == false)
+                if (monsters[0].IsDead() || monsters[1].IsDead() == false)
                 {
                     monsterTurn = GenerateRandomNum(1, 3);
 
                     switch (monsterTurn)
                     {
                         case 1:
-                            if (warrior.IsDead() == false)
+                            if (heroes[0].IsDead() == false)
                             {
-                                warrior.ReceiveAttack(goblin.Attack());
+                                heroes[0].ReceiveAttack(monsters[1].Attack());
                                 Console.WriteLine("Goblin has attacked Warrior");
                                 Console.WriteLine("Warrior's health:");
-                                Console.WriteLine(warrior.Status.Health);
+                                Console.WriteLine(heroes[0].Status.Health);
                             }
                             break;
 
                         case 2:
-                            if (archer.IsDead() == false)
+                            if (heroes[1].IsDead() == false)
                             {
-                                archer.ReceiveAttack(goblin.Attack());
+                                heroes[1].ReceiveAttack(monsters[1].Attack());
                                 Console.WriteLine("Goblin has attacked Archer");
                                 Console.WriteLine("Archer's health:");
-                                Console.WriteLine(archer.Status.Health);
+                                Console.WriteLine(heroes[1].Status.Health);
                             }
                             break;
 
                         case 3:
-                            if (mage.IsDead() == false)
+                            if (heroes[2].IsDead() == false)
                             {
-                                mage.ReceiveAttack(goblin.Attack());
+                                heroes[2].ReceiveAttack(monsters[1].Attack());
                                 Console.WriteLine("Goblin has attacked Mage");
                                 Console.WriteLine("Mage's health:");
-                                Console.WriteLine(mage.Status.Health);
+                                Console.WriteLine(heroes[2].Status.Health);
                             }
                             break;
                     }
                 }
-                else if (spider.IsDead() == false || goblin.IsDead())
+                else if (monsters[0].IsDead() == false || monsters[1].IsDead())
                 {
                     monsterTurn = GenerateRandomNum(1, 3);
                     switch (monsterTurn)
                     {
                         case 1:
-                            if (warrior.IsDead() == false)
+                            if (heroes[0].IsDead() == false)
                             {
-                                warrior.ReceiveAttack(spider.Attack());
+                                heroes[0].ReceiveAttack(monsters[0].Attack());
                                 Console.WriteLine("Spider has attacked Warrior");
                                 Console.WriteLine("Warrior's health:");
-                                Console.WriteLine(warrior.Status.Health);
+                                Console.WriteLine(heroes[0].Status.Health);
                             }
                             break;
 
                         case 2:
-                            if (archer.IsDead() == false)
+                            if (heroes[1].IsDead() == false)
                             {
-                                archer.ReceiveAttack(spider.Attack());
+                                heroes[1].ReceiveAttack(monsters[0].Attack());
                                 Console.WriteLine("Spider has attacked Archer");
                                 Console.WriteLine("Acher's health:");
-                                Console.WriteLine(archer.Status.Health);
+                                Console.WriteLine(heroes[1].Status.Health);
                             } 
                             break;
 
                         case 3:
-                            if (mage.IsDead() == false)
+                            if (heroes[2].IsDead() == false)
                             {
-                                mage.ReceiveAttack(spider.Attack());
+                                heroes[2].ReceiveAttack(monsters[0].Attack());
                                 Console.WriteLine("Spider has attacked Mage");
                                 Console.WriteLine("Mage's health:");
-                                Console.WriteLine(mage.Status.Health);
+                                Console.WriteLine(heroes[2].Status.Health);
                             }
                             break;
                     }
                 }
 
                 //Check who won
-                if (spider.IsDead() && goblin.IsDead())
+                if (monsters[0].IsDead() && monsters[2].IsDead())
                 {
                     Console.WriteLine("You win");
                     Running = false;
                     return 0;
                 }
-                if (warrior.IsDead()  && archer.IsDead() && mage.IsDead())
+                if (heroes[0].IsDead()  && heroes[1].IsDead() && heroes[2].IsDead())
                 {
                     Console.WriteLine("You lose");
                     Running = false;
