@@ -15,7 +15,7 @@ namespace DD
         }
 
         //Constructor
-        public Spider(int level, Monster_Status status) : base(level, status)
+        public Spider(string name, int level, Monster_Status status) : base(name, level, status)
         {
 
         }

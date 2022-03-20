@@ -13,7 +13,7 @@ namespace DD
 
         }
 
-        public Goblin(int level, Monster_Status status) : base(level, status)
+        public Goblin(string name, int level, Monster_Status status) : base(name, level, status)
         {
 
         }
