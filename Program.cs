@@ -96,26 +96,26 @@ namespace DD
                         switch (opt)
                         {
                             case 1:
-                                Console.WriteLine("Choose the target:\n1 - {0}\n2 - {1}", monsters[0].Name);
+                                Console.WriteLine("Choose the target:\n1 - {0}\n2 - {1}", monsters[0].Name, monsters[1].Name);
                                 targetS = Console.ReadLine();
                                 target = Int32.Parse(targetS);
 
                                 switch (target)
                                 {
                                     case 1:
-                                        spider.ReceiveAttack(warrior.Attack());
+                                        monsters[0].ReceiveAttack(heroes[0].Attack());
                                         Console.WriteLine("Target's health:");
-                                        Console.WriteLine(spider.Status.Health);
+                                        Console.WriteLine(monsters[0].Status.Health);
                                         break;
                                     case 2:
-                                        goblin.ReceiveAttack(warrior.Attack());
+                                        monsters[1].ReceiveAttack(heroes[0].Attack());
                                         Console.WriteLine("Target's health:");
-                                        Console.WriteLine(goblin.Status.Health);
+                                        Console.WriteLine(monsters[1].Status.Health);
                                         break;
                                 }
                                 break;
                             case 2:
-                                warrior.PrintStats();
+                                heroes[0].PrintStats();
                                 break;
                         }
                         break;
@@ -128,26 +128,26 @@ namespace DD
                         switch (opt)
                         {
                             case 1:
-                                Console.WriteLine("Choose the target:\n1 - Spider\n2 - Goblin");
+                                Console.WriteLine("Choose the target:\n1 - {0}\n2 - {1}", monsters[0].Name, monsters[1].Name);
                                 targetS = Console.ReadLine();
                                 target = Int32.Parse(targetS);
 
                                 switch (target)
                                 {
                                     case 1:
-                                        spider.ReceiveAttack(archer.Attack());
+                                        monsters[0].ReceiveAttack(heroes[1].Attack());
                                         Console.WriteLine("Target's health:");
-                                        Console.WriteLine(spider.Status.Health);
+                                        Console.WriteLine(monsters[0].Status.Health);
                                         break;
                                     case 2:
-                                        goblin.ReceiveAttack(archer.Attack());
+                                        monsters[1].ReceiveAttack(heroes[1].Attack());
                                         Console.WriteLine("Target's health:");
-                                        Console.WriteLine(goblin.Status.Health);
+                                        Console.WriteLine(monsters[1].Status.Health);
                                         break;
                                 }
                                 break;
                             case 2:
-                                archer.PrintStats();
+                                heroes[1].PrintStats();
                                 break;
                         }
                         break;
@@ -160,21 +160,21 @@ namespace DD
                         switch (opt)
                         {
                             case 1:
-                                Console.WriteLine("Choose the target:\n1 - Spider\n2 - Goblin");
+                                Console.WriteLine("Choose the target:\n1 - {0}\n2 - {1}", monsters[0].Name, monsters[1].Name);
                                 targetS = Console.ReadLine();
                                 target = Int32.Parse(targetS);
 
                                 switch (target)
                                 {
                                     case 1:
-                                        spider.ReceiveAttack(mage.Attack());
+                                        monsters[0].ReceiveAttack(heroes[2].Attack());
                                         Console.WriteLine("Target's health:");
-                                        Console.WriteLine(spider.Status.Health);
+                                        Console.WriteLine(monsters[0].Status.Health);
                                         break;
                                     case 2:
-                                        goblin.ReceiveAttack(mage.Attack());
+                                        monsters[1].ReceiveAttack(heroes[2].Attack());
                                         Console.WriteLine("Target's health:");
-                                        Console.WriteLine(goblin.Status.Health);
+                                        Console.WriteLine(monsters[1].Status.Health);
                                         break;
                                 }
                                 break;
@@ -195,7 +195,7 @@ namespace DD
                                 break;
 
                             case 3:
-                                mage.PrintStats();
+                                heroes[2].PrintStats();
                                 break;
                         }
                         break;
