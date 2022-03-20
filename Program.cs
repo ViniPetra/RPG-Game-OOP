@@ -11,15 +11,38 @@ namespace DD
 
         static int Main(string[] args)
         {
-            
+
             bool Running = true;
 
             Random random = new Random();
-            
+
             int GenerateRandomNum(int min, int max)
             {
                 int randomNum = random.Next(min, max);
                 return randomNum;
+            }
+
+            Hero[] allHeroes = new Hero[9];
+
+            for (int i = 0; i < allHeroes.Length; i++)
+            {
+                if (i == 0 || i == 3 || i == 6)
+                {
+                    allHeroes[i] = new Warrior("warrior", GenerateRandomNum(1, 90), GenerateRandomNum(1, 100), new Hero_Status(GenerateRandomNum(20, 100), GenerateRandomNum(20, 100), GenerateRandomNum(10, 100), GenerateRandomNum(1, 100), GenerateRandomNum(30, 100), 0));
+                } else if (i == 1 || i == 4 || i == 7)
+                {
+                    allHeroes[i] = new Archer("archer", GenerateRandomNum(1, 90), GenerateRandomNum(1, 100), new Hero_Status(GenerateRandomNum(20, 100), GenerateRandomNum(20, 100), GenerateRandomNum(10, 100), GenerateRandomNum(1, 100), GenerateRandomNum(30, 100), 0));
+                } else
+                {
+                    allHeroes[i] = new Mage("mage", GenerateRandomNum(1, 90), GenerateRandomNum(1, 100), new Hero_Status(GenerateRandomNum(20, 100), GenerateRandomNum(20, 100), GenerateRandomNum(10, 100), GenerateRandomNum(1, 100), GenerateRandomNum(30, 100), GenerateRandomNum(10, 100)));
+                }
+            }
+
+            Hero[] heroes = new Hero[3];
+            for (int i = 0; i < heroes.Length; i++)
+            {
+                heroes[i] = allHeroes[GenerateRandomNum(0, 8)];
+                Console.WriteLine("Posição {0}: {1}", i, heroes[i]);
             }
 
             Warrior warrior = new Warrior("warrior", GenerateRandomNum(1, 90), GenerateRandomNum(1, 100), new Hero_Status(GenerateRandomNum(20, 100), GenerateRandomNum(20, 100), GenerateRandomNum(10, 100), GenerateRandomNum(1, 100), GenerateRandomNum(30, 100), 0));
@@ -28,13 +51,6 @@ namespace DD
 
             Spider spider = new Spider(GenerateRandomNum(1, 100), new Monster_Status(GenerateRandomNum(20, 100), GenerateRandomNum(20, 100), GenerateRandomNum(10, 100), GenerateRandomNum(1, 100), GenerateRandomNum(30, 100), 0));
             Goblin goblin = new Goblin(GenerateRandomNum(1, 100), new Monster_Status(GenerateRandomNum(20, 100), GenerateRandomNum(20, 100), GenerateRandomNum(10, 100), GenerateRandomNum(1, 100), GenerateRandomNum(30, 100), 0));
-
-
-            warrior.PrintStats();
-            archer.PrintStats();
-            mage.PrintStats();
-            spider.PrintStats();
-            goblin.PrintStats();
 
             while (Running)
             {
@@ -255,3 +271,4 @@ namespace DD
         }
     }
 }
+            
