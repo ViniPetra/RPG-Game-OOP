@@ -146,7 +146,7 @@ namespace DD
                         break;
 
                     case 3:
-                        Console.WriteLine("Choose the action:\n1 - Attack\n2 - Heal\n3 - See stats");
+                        Console.WriteLine("Choose the action:\n1 - Attack\n2 - See stats");
                         optS = Console.ReadLine();
                         opt = Int32.Parse(optS);
 
@@ -171,6 +171,7 @@ namespace DD
                                         break;
                                 }
                                 break;
+                                /*
                             case 2:
                                 Console.WriteLine("Choose the target:\n1 - Warrior\n2 - Archer");
                                 targetS = Console.ReadLine();
@@ -186,8 +187,9 @@ namespace DD
                                         break;
                                 }
                                 break;
+                                */
 
-                            case 3:
+                            case 2:
                                 heroes[2].PrintStats();
                                 break;
                         }
