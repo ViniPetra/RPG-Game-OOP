@@ -206,9 +206,8 @@ namespace DD
                             if (heroes[0].IsDead() == false)
                             {
                                 heroes[0].ReceiveAttack(monsters[1].Attack());
-                                Console.WriteLine("Goblin has attacked Warrior");
-                                Console.WriteLine("Warrior's health:");
-                                Console.WriteLine(heroes[0].Status.Health);
+                                Console.WriteLine("{0} has attacked {1}", monsters[1].Name, heroes[0].HeroName);
+                                Console.WriteLine("{0}'s health: {1}", heroes[0].HeroName, heroes[0].Status.Health);
                             }
                             break;
 
@@ -216,9 +215,8 @@ namespace DD
                             if (heroes[1].IsDead() == false)
                             {
                                 heroes[1].ReceiveAttack(monsters[1].Attack());
-                                Console.WriteLine("Goblin has attacked Archer");
-                                Console.WriteLine("Archer's health:");
-                                Console.WriteLine(heroes[1].Status.Health);
+                                Console.WriteLine("{0} has attacked {1}", monsters[1].Name, heroes[1].HeroName);
+                                Console.WriteLine("{0}'s health: {1}", heroes[1].HeroName, heroes[1].Status.Health);
                             }
                             break;
 
@@ -226,9 +224,8 @@ namespace DD
                             if (heroes[2].IsDead() == false)
                             {
                                 heroes[2].ReceiveAttack(monsters[1].Attack());
-                                Console.WriteLine("Goblin has attacked Mage");
-                                Console.WriteLine("Mage's health:");
-                                Console.WriteLine(heroes[2].Status.Health);
+                                Console.WriteLine("{0} has attacked {1}", monsters[1].Name, heroes[2].HeroName);
+                                Console.WriteLine("{0}'s health: {1}", heroes[2].HeroName, heroes[2].Status.Health);
                             }
                             break;
                     }
@@ -242,29 +239,26 @@ namespace DD
                             if (heroes[0].IsDead() == false)
                             {
                                 heroes[0].ReceiveAttack(monsters[0].Attack());
-                                Console.WriteLine("Spider has attacked Warrior");
-                                Console.WriteLine("Warrior's health:");
-                                Console.WriteLine(heroes[0].Status.Health);
+                                Console.WriteLine("{0} has attacked {1}", monsters[0].Name, heroes[0].HeroName);
+                                Console.WriteLine("{0}'s health: {1}", heroes[0].HeroName, heroes[0].Status.Health);
                             }
                             break;
 
                         case 2:
                             if (heroes[1].IsDead() == false)
                             {
-                                heroes[1].ReceiveAttack(monsters[0].Attack());
-                                Console.WriteLine("Spider has attacked Archer");
-                                Console.WriteLine("Acher's health:");
-                                Console.WriteLine(heroes[1].Status.Health);
+                                heroes[0].ReceiveAttack(monsters[0].Attack());
+                                Console.WriteLine("{0} has attacked {1}", monsters[0].Name, heroes[1].HeroName);
+                                Console.WriteLine("{0}'s health: {1}", heroes[1].HeroName, heroes[1].Status.Health);
                             } 
                             break;
 
                         case 3:
                             if (heroes[2].IsDead() == false)
                             {
-                                heroes[2].ReceiveAttack(monsters[0].Attack());
-                                Console.WriteLine("Spider has attacked Mage");
-                                Console.WriteLine("Mage's health:");
-                                Console.WriteLine(heroes[2].Status.Health);
+                                heroes[0].ReceiveAttack(monsters[0].Attack());
+                                Console.WriteLine("{0} has attacked {1}", monsters[0].Name, heroes[2].HeroName);
+                                Console.WriteLine("{0}'s health: {1}", heroes[2].HeroName, heroes[2].Status.Health);
                             }
                             break;
                     }
