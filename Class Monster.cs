@@ -90,6 +90,7 @@ namespace DD
 
         public void PrintStats()
         {
+            Console.WriteLine("Name: {0}", this.name);
             Console.WriteLine("Level: {0}", this.Level);
             Console.WriteLine("Damage: {0}", this.Status.Damage);
             Console.WriteLine("Protection: {0}", this.Status.Protection);

@@ -40,7 +40,6 @@ namespace DD
             for (int i = 0; i < heroes.Length; i++)
             {
                 heroes[i] = allHeroes[GenerateRandomNum(0, 8)];
-                Console.WriteLine("Posição {0}: {1}", i, heroes[i].HeroName);
                 heroes[i].PrintStats();
             }
 
@@ -65,7 +64,6 @@ namespace DD
             for (int i = 0; i < monsters.Length; i++)
             {
                 monsters[i] = allMonsters[GenerateRandomNum(0, 8)];
-                Console.WriteLine("Monstro {0}: {1}", i, monsters[i].Name);
                 monsters[i].PrintStats();
             }
 
