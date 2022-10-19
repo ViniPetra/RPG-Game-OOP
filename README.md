@@ -5,8 +5,8 @@ This is a project to implement some of the things i learnt in a class i had this
 
 It's main focus is to learn OOP concepts but it was a great opportunity to get more used to Visual Studio and Git.
 
-More than that, i reaally enjoyed thinking of ways to generate random enities with random stats
+More than that, i really enjoyed thinking of ways to generate random enities with random stats
 
 ![image](https://user-images.githubusercontent.com/89108219/159701469-1d00ba23-8ea9-4eb0-95a3-cd3b5b402200.png)
 
-It is likely that i will continue the project both to implement new features and use it to learn even more coding techniques.
+I might not give this project more time because it was only a study. It has a special place in my heart tho.
